@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071c24">
+<title>BOUZAYAN MARKET | Your Digital World</title>
+<meta name="description" content="BOUZAYAN MARKET - خدمات رقمية، ألعاب، اشتراكات وشحن تطبيقات.">
+<style>
+:root{
+  --bg:#071c24;
+  --panel:#0d2932;
+  --panel2:#123640;
+  --green:#20d6a0;
+  --blue:#37c9e8;
+  --text:#f3fbfa;
+  --muted:#a7c1c4;
+  --line:rgba(255,255,255,.09);
+  --danger:#ff7777;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,28,36,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  min-height:76px;display:flex;align-items:center;
+  justify-content:space-between;gap:15px;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{
+  width:43px;height:43px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--green),var(--blue));
+  color:#06232a;font-weight:1000;font-size:20px;
+}
+.logo strong{display:block;font-size:17px;letter-spacing:.5px}
+.logo small{color:var(--muted);font-size:11px}
+.nav-links{display:flex;gap:17px;color:var(--muted);font-size:13px}
+.nav-links a:hover{color:var(--green)}
+.hero{padding:55px 0 28px}
+.hero-box{
+  padding:36px 27px;border-radius:25px;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(55,201,232,.2),transparent 35%),
+    radial-gradient(circle at 90% 80%,rgba(32,214,160,.16),transparent 35%),
+    linear-gradient(135deg,#10343d,#0a222c);
+  border:1px solid var(--line);
+  text-align:center;
+}
+.badge{
+  display:inline-block;padding:7px 13px;border-radius:30px;
+  color:var(--green);background:rgba(32,214,160,.1);
+  border:1px solid rgba(32,214,160,.2);font-size:12px;
+}
+.hero h1{font-size:clamp(27px,5vw,45px);margin:17px 0 8px}
+.hero h1 span{color:var(--green)}
+.hero p{color:var(--muted);line-height:1.9;margin:0 auto;max-width:620px}
+.hero-buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{
+  border:0;border-radius:12px;padding:12px 19px;
+  font-weight:800;transition:.2s;display:inline-flex;
+  align-items:center;justify-content:center;gap:7px;
+}
+.btn-primary{background:linear-gradient(135deg,var(--green),var(--blue));color:#06232a}
+.btn-secondary{background:rgba(255,255,255,.07);color:var(--text);border:1px solid var(--line)}
+.btn:hover{transform:translateY(-2px)}
+.notice{
+  margin:22px auto;padding:18px 19px;
+  background:rgba(32,214,160,.07);
+  border:1px solid rgba(32,214,160,.22);
+  border-radius:16px;line-height:1.9;
+}
+.notice strong{color:var(--green)}
+.notice p{margin:7px 0 0;color:#c7dcdd;font-size:14px}
+.search-wrap{margin:27px auto 18px;position:relative}
+.search-wrap input{
+  width:100%;padding:17px 48px 17px 16px;
+  background:var(--panel);border:1px solid var(--line);
+  color:white;border-radius:15px;outline:none;font-size:15px;
+}
+.search-wrap input:focus{border-color:var(--green)}
+.search-icon{position:absolute;right:17px;top:15px;font-size:19px}
+.section-title{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:32px 0 16px}
+.section-title h2{font-size:22px;margin:0}
+.section-title p{font-size:12px;color:var(--muted);margin:5px 0 0}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px}
+.filter{
+  flex:0 0 auto;border:1px solid var(--line);
+  background:var(--panel);color:var(--muted);
+  border-radius:30px;padding:9px 14px;font-size:13px;
+}
+.filter.active,.filter:hover{
+  background:rgba(32,214,160,.13);border-color:var(--green);color:var(--green)
+}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{
+  background:linear-gradient(145deg,var(--panel),#0a222b);
+  border:1px solid var(--line);border-radius:17px;
+  padding:17px;display:flex;flex-direction:column;min-width:0;
+  transition:.2s;
+}
+.card:hover{border-color:rgba(32,214,160,.45);transform:translateY(-2px)}
+.card-top{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.card-icon{
+  width:43px;height:43px;flex:0 0 43px;border-radius:13px;
+  display:grid;place-items:center;background:rgba(55,201,232,.12);
+  font-size:22px;
+}
+.card h3{font-size:16px;margin:0 0 4px}
+.card small{color:var(--muted);font-size:11px}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.7;min-height:39px}
+.price-list{margin:12px 0;display:grid;gap:7px}
+.price-row{
+  display:flex;justify-content:space-between;gap:8px;
+  padding:8px 10px;background:rgba(255,255,255,.035);
+  border-radius:9px;font-size:12px;
+}
+.price-row b{color:var(--green);white-space:nowrap}
+.unavailable{color:var(--danger)!important}
+.card .btn{margin-top:auto;width:100%;padding:11px;font-size:13px}
+.empty{
+  display:none;text-align:center;padding:35px;
+  color:var(--muted);background:var(--panel);border-radius:15px
+}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0}
+.info{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:15px;padding:17px;text-align:center
+}
+.info span{font-size:23px}
+.info h3{font-size:14px;margin:9px 0 5px}
+.info p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+footer{
+  margin-top:45px;padding:30px 0;border-top:1px solid var(--line);
+  text-align:center;color:var(--muted);font-size:12px;line-height:2
+}
+footer strong{color:var(--green)}
+.whatsapp-float{
+  position:fixed;bottom:19px;left:18px;z-index:30;
+  background:#20c879;color:#05271b;border-radius:50px;
+  padding:13px 17px;font-weight:900;box-shadow:0 5px 25px #0005;
+}
+.modal{
+  display:none;position:fixed;inset:0;z-index:50;
+  background:rgba(0,0,0,.75);padding:15px;
+  align-items:center;justify-content:center;
+}
+.modal.show{display:flex}
+.modal-box{
+  width:min(520px,100%);max-height:90vh;overflow:auto;
+  background:#0d2932;border:1px solid var(--line);
+  border-radius:20px;padding:21px;
+}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.modal-head h2{font-size:19px;margin:0}
+.close{
+  background:rgba(255,255,255,.08);border:0;color:white;
+  width:34px;height:34px;border-radius:10px;font-size:20px
+}
+.field{margin:13px 0}
+.field label{display:block;font-size:13px;color:#c9dddd;margin-bottom:7px}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px;border-radius:10px;
+  background:#071c24;color:white;border:1px solid var(--line);outline:none;
+}
+.field textarea{min-height:75px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green)}
+.modal-note{font-size:12px;color:var(--muted);line-height:1.7}
+.total{
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(32,214,160,.08);padding:13px;border-radius:11px;
+  margin:14px 0;font-weight:800
+}
+.total strong{color:var(--green)}
+.modal-submit{width:100%;padding:14px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){
+  .nav{min-height:66px}.nav-links{display:none}
+  .hero{padding-top:28px}.hero-box{padding:29px 16px}
+  .grid{grid-template-columns:1fr}
+  .card-desc{min-height:0}
+  .info-grid{grid-template-columns:1fr}
+  .section-title h2{font-size:19px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">
+      <div class="logo-icon">B</div>
+      <div>
+        <strong>BOUZAYAN MARKET</strong>
+        <small>Your Digital World</small>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">الخدمات</a>
+      <a href="#how">كيفاش تطلب؟</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-box">
+      <span class="badge">YOUR DIGITAL WORLD</span>
+      <h1>مرحبا بيك في <span>BOUZAYAN MARKET</span></h1>
+      <p>كل خدماتك الرقمية في بلاصة واحدة: ألعاب، اشتراكات، شحن، وخدمات التواصل الاجتماعي.</p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#services">اكتشف الخدمات ↓</a>
+        <a class="btn btn-secondary" href="https://wa.me/21656377619" target="_blank">تواصل معنا</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice">
+    <strong>💚 مرحباً بيك في BOUZAYAN MARKET!</strong>
+    <p>
+      نحن سعداء بثقتكم واختياركم لخدماتنا. نحبّو نعلموكم إنّ الردّ على الرسائل والطلبات قد يتأخّر أحياناً بسبب التزامات العمل، لكن نحرصو على مراجعة جميع رسائلكم والردّ عليها في أقرب وقت ممكن.
+      اطمئن، طلبك ورسالتك محفوظين، وما يلزمكش تعاود تبعث نفس الرسالة. شكراً على صبرك وثقتك فينا. ❤️
+    </p>
+  </section>
+
+  <section id="services">
+    <div class="section-title">
+      <div>
+        <h2>🛍️ اكتشف خدماتنا</h2>
+        <p>استعمل البحث باش تلقى الخدمة اللي تحب عليها بسرعة.</p>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input id="search" type="search" placeholder="ابحث عن خدمة، لعبة، تطبيق أو منصة...">
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter active" data-cat="all">الكل</button>
+      <button class="filter" data-cat="games">🎮 الألعاب</button>
+      <button class="filter" data-cat="subscriptions">⭐ الاشتراكات</button>
+      <button class="filter" data-cat="internet">📶 الإنترنت</button>
+      <button class="filter" data-cat="social">📱 التواصل الاجتماعي</button>
+      <button class="filter" data-cat="other">💎 خدمات أخرى</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty">ما لقيناش الخدمة هاذي. جرّب كلمة أخرى أو تواصل معنا على WhatsApp.</div>
+  </section>
+
+  <section id="how">
+    <div class="section-title">
+      <div>
+        <h2>كيفاش تطلب؟</h2>
+        <p>خطوات بسيطة لإرسال طلبك.</p>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info"><span>🔎</span><h3>1. اختار الخدمة</h3><p>استعمل البحث أو تصفّح الأقسام واختار العرض المناسب.</p></div>
+      <div class="info"><span>📝</span><h3>2. عمّر الطلب</h3><p>أدخل المعلومات المطلوبة وحدّد الكمية وطريقة الدفع.</p></div>
+      <div class="info"><span>💬</span><h3>3. ابعث على WhatsApp</h3><p>تتحلّلك رسالة فيها تفاصيل طلبك باش نراجعوه ونتواصلو معاك.</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="notice">
+      <strong>📲 تحتاج مساعدة أو تحب خدمة موش موجودة؟</strong>
+      <p>راسلنا على WhatsApp، ابعث اسم التطبيق أو الخدمة والتفاصيل المطلوبة، ونعطيوك السعر والتوفر.</p>
+      <a class="btn btn-primary" style="margin-top:12px" href="https://wa.me/21656377619" target="_blank">راسلنا على WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>BOUZAYAN MARKET</strong><br>
+  Your Digital World<br>
+  جميع الحقوق محفوظة © <span id="year"></span>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/21656377619" target="_blank">WhatsApp ✆</a>
+
+<div class="modal" id="orderModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="modalTitle">إرسال طلب</h2>
+      <button class="close" id="closeModal" aria-label="إغلاق">×</button>
+    </div>
+    <div class="field">
+      <label>الخدمة المختارة</label>
+      <input id="serviceName" readonly>
+    </div>
+    <div class="field" id="offerField">
+      <label>اختار العرض</label>
+      <select id="offer"></select>
+    </div>
+    <div class="field" id="quantityField">
+      <label>الكمية</label>
+      <input id="quantity" type="number" min="1" value="1">
+    </div>
+    <div class="field" id="linkField">
+      <label id="linkLabel">الرابط أو اسم المستخدم</label>
+      <input id="customerLink" placeholder="أدخل الرابط أو المعلومات المطلوبة">
+    </div>
+    <div class="field">
+      <label>طريقة الدفع</label>
+      <select id="payment">
+        <option value="D17">D17</option>
+        <option value="كوارط Orange">كوارط Orange</option>
+        <option value="رصيد Orange">رصيد Orange</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>رقم هاتفك (اختياري)</label>
+      <input id="phone" type="tel" placeholder="مثال: 2XXXXXXX">
+    </div>
+    <div class="field">
+      <label>ملاحظات إضافية (اختياري)</label>
+      <textarea id="notes" placeholder="أي تفاصيل تحب تزيدها..."></textarea>
+    </div>
+    <div class="total">
+      <span>السعر المعروض</span>
+      <strong id="totalPrice">حسب الطلب</strong>
+    </div>
+    <p class="modal-note">
+      بالضغط على إرسال الطلب، تتحلّ WhatsApp برسالة فيها تفاصيل طلبك. يتم تأكيد الطلب والتوفر وطريقة الدفع مع الإدارة قبل التنفيذ.
+    </p>
+    <button class="btn btn-primary modal-submit" id="sendOrder">إرسال الطلب عبر WhatsApp</button>
+  </div>
+</div>
+
+<script>
+const WHATSAPP = "21656377619";
+
+const services = [
+  // GAMES
+  {id:"ff",cat:"games",icon:"🔥",name:"Free Fire Diamonds",desc:"شحن جواهر Free Fire وعضويات.",offers:[
+    {name:"110 Diamonds",d17:5,sold:6},
+    {name:"220 Diamonds",d17:9,sold:10},
+    {name:"330 Diamonds",d17:14,sold:15},
+    {name:"550 Diamonds",d17:23,sold:25},
+    {name:"1188 Diamonds",d17:48,sold:50},
+    {name:"2200 Diamonds",d17:90,sold:92},
+    {name:"Monthly Membership",d17:48,sold:51},
+    {name:"Weekly Membership",d17:11,sold:12}
+  ],label:"Player ID / معلومات الحساب",placeholder:"أدخل Player ID أو المعلومات المطلوبة"},
+  {id:"efootball",cat:"games",icon:"⚽",name:"eFootball Coins",desc:"شحن عملات eFootball عبر الحساب.",offers:[
+    {name:"100 Coins",d17:5,sold:6},
+    {name:"300 Coins",d17:14,sold:15},
+    {name:"500 Coins",d17:21,sold:25},
+    {name:"1,000 Coins",d17:42,sold:48},
+    {name:"2,000 Coins",d17:81,sold:86},
+    {name:"3,000 Coins",d17:115,sold:null},
+    {name:"5,000 Coins",d17:180,sold:null},
+    {name:"10,000 Coins",d17:330,sold:null},
+    {name:"15,000 Coins",d17:455,sold:null}
+  ],label:"معلومات الحساب",placeholder:"أدخل المعلومات المطلوبة للشحن"},
+
+  // SUBSCRIPTIONS
+  {id:"netflix",cat:"subscriptions",icon:"🎬",name:"Netflix",desc:"شهر واحد – حساب شخصي خاص – جودة 4K UHD.",offers:[
+    {name:"One Month – Private Personal Account",d17:25,sold:27}
+  ]},
+  {id:"youtube-premium",cat:"subscriptions",icon:"▶️",name:"YouTube Premium",desc:"شهر واحد – دخول كامل وبدون إعلانات.",offers:[
+    {name:"One Month – Full Access",d17:25,sold:27}
+  ]},
+  {id:"chatgpt",cat:"subscriptions",icon:"🤖",name:"ChatGPT Plus",desc:"اشتراكات ChatGPT Plus.",offers:[
+    {name:"One Month – Private Personal Account",d17:90,sold:95},
+    {name:"One Month – Shared Personal Account",d17:35,sold:38},
+    {name:"Three Months – Shared Account",d17:90,sold:95}
+  ]},
+  {id:"claude",cat:"subscriptions",icon:"🧠",name:"Claude Pro",desc:"اشتراكات Claude Pro.",offers:[
+    {name:"One Month – Private Personal Account",d17:90,sold:95},
+    {name:"One Month – Shared Personal Account",d17:40,sold:43}
+  ]},
+  {id:"canva",cat:"subscriptions",icon:"🎨",name:"Canva Pro",desc:"اشتراك Canva Pro – دخول كامل.",offers:[
+    {name:"One Month – Full Access",d17:20,sold:22},
+    {name:"Three Months – Full Access",d17:40,sold:44}
+  ]},
+  {id:"gemini",cat:"subscriptions",icon:"✨",name:"Gemini Premium",desc:"Gemini AI Pro – شهر واحد.",offers:[
+    {name:"One Month – Gemini AI Pro",d17:20,sold:23}
+  ]},
+  {id:"quillbot",cat:"subscriptions",icon:"📝",name:"QuillBot",desc:"شهر واحد – حساب مشترك.",offers:[
+    {name:"One Month – Shared Account",d17:20,sold:23}
+  ]},
+  {id:"spotify",cat:"subscriptions",icon:"🎵",name:"Spotify Premium",desc:"شهر واحد – حساب كامل – تسليم فوري حسب التوفر.",offers:[
+    {name:"One Month – Full Account",d17:20,sold:23}
+  ]},
+
+  // INTERNET
+  {id:"orange-net",cat:"internet",icon:"🟠",name:"Orange Internet",desc:"باقات إنترنت Orange.",offers:[
+    {name:"25 Go",d17:30},
+    {name:"30 Go",d17:35},
+    {name:"42 Go",d17:44},
+    {name:"100 Go",d17:70}
+  ]},
+  {id:"ooredoo-net",cat:"internet",icon:"🔴",name:"Ooredoo Internet",desc:"باقات إنترنت Ooredoo.",offers:[
+    {name:"25 Go",d17:30},
+    {name:"30 Go",d17:35},
+    {name:"42 Go",d17:44},
+    {name:"100 Go",d17:70}
+  ]},
+
+  // SOCIAL
+  {id:"instagram-followers",cat:"social",icon:"📸",name:"Instagram Followers",desc:"زيادة متابعين Instagram – الأسعار حسب الكمية.",offers:[
+    {name:"1K Followers",price:10},
+    {name:"5K Followers",price:45},
+    {name:"10K Followers",price:90},
+    {name:"15K Followers",price:135},
+    {name:"20K Followers",price:175},
+    {name:"25K Followers",price:215},
+    {name:"30K Followers",price:275},
+    {name:"40K Followers",price:345},
+    {name:"50K Followers",price:450},
+    {name:"75K Followers",price:670},
+    {name:"100K Followers",price:950},
+    {name:"500K Followers",price:4800},
+    {name:"1M Followers",price:9500}
+  ],label:"رابط الحساب",placeholder:"ضع رابط حساب Instagram"},
+  {id:"instagram-likes",cat:"social",icon:"❤️",name:"Instagram Likes",desc:"إعجابات منشورات Instagram.",offers:[
+    {name:"1K Likes",price:5},
+    {name:"5K Likes",price:25},
+    {name:"10K Likes",price:50},
+    {name:"15K Likes",price:75},
+    {name:"20K Likes",price:100},
+    {name:"25K Likes",price:125},
+    {name:"30K Likes",price:150},
+    {name:"40K Likes",price:200},
+    {name:"50K Likes",price:250},
+    {name:"75K Likes",price:375},
+    {name:"100K Likes",price:500},
+    {name:"500K Likes",price:2500},
+    {name:"1M Likes",price:5000}
+  ],label:"رابط المنشور",placeholder:"ضع رابط منشور Instagram"},
+  {id:"instagram-views",cat:"social",icon:"👁️",name:"Instagram Views",desc:"مشاهدات Instagram Reels والمنشورات.",offers:[
+    {name:"1K Views",price:3},
+    {name:"5K Views",price:15},
+    {name:"10K Views",price:30},
+    {name:"15K Views",price:45},
+    {name:"20K Views",price:60},
+    {name:"25K Views",price:75},
+    {name:"30K Views",price:90},
+    {name:"40K Views",price:120},
+    {name:"50K Views",price:150},
+    {name:"75K Views",price:225},
+    {name:"100K Views",price:300},
+    {name:"500K Views",price:1500},
+    {name:"1M Views",price:3000}
+  ],label:"رابط المنشور أو الفيديو",placeholder:"ضع رابط المحتوى"},
+  {id:"facebook-views",cat:"social",icon:"👁️",name:"Facebook Views",desc:"مشاهدات Facebook – السعر لكل 1K.",rate:1,unit:"Views",label:"رابط الفيديو",placeholder:"ضع رابط فيديو Facebook"},
+  {id:"facebook-likes",cat:"social",icon:"👍",name:"Facebook Post Likes",desc:"إعجابات منشورات Facebook – السعر لكل 1K.",rate:2,unit:"Likes",label:"رابط المنشور",placeholder:"ضع رابط منشور Facebook"},
+  {id:"tiktok-views",cat:"social",icon:"🎵",name:"TikTok Views",desc:"مشاهدات TikTok – السعر لكل 1K.",rate:1,unit:"Views",label:"رابط الفيديو",placeholder:"ضع رابط فيديو TikTok"},
+  {id:"tiktok-likes",cat:"social",icon:"❤️",name:"TikTok Likes",desc:"إعجابات TikTok – السعر لكل 1K.",rate:4,unit:"Likes",label:"رابط الفيديو",placeholder:"ضع رابط فيديو TikTok"},
+  {id:"tiktok-followers",cat:"social",icon:"👥",name:"TikTok Followers",desc:"متابعو TikTok – السعر لكل 1K.",rate:6,unit:"Followers",label:"رابط الحساب",placeholder:"ضع رابط حساب TikTok"},
+  {id:"youtube-views",cat:"social",icon:"▶️",name:"YouTube Views",desc:"مشاهدات YouTube – السعر لكل 1K.",rate:5,unit:"Views",label:"رابط الفيديو",placeholder:"ضع رابط فيديو YouTube"},
+  {id:"youtube-subs",cat:"social",icon:"🔔",name:"YouTube Subscribers",desc:"مشتركو YouTube – السعر لكل 1K.",rate:100,unit:"Subscribers",label:"رابط القناة",placeholder:"ضع رابط قناة YouTube"},
+  {id:"verification",cat:"social",icon:"☑️",name:"Facebook / Instagram Verification",desc:"خدمة طلب توثيق حساب Facebook أو Instagram. التوفر والشروط حسب المنصة.",offers:[
+    {name:"First-time verification",d17:15,sold:18},
+    {name:"Second time or more",d17:25,sold:28}
+  ],label:"رابط الحساب",placeholder:"ضع رابط الحساب المراد تقديم طلب توثيقه"},
+
+  // OTHER
+  {id:"tiktok-coins",cat:"other",icon:"🪙",name:"TikTok Coins",desc:"اختار الكمية اللي تحب عليها وراسلنا لمعرفة السعر والتوفر.",custom:true,quantity:true,label:"كمية العملات",placeholder:"اكتب الكمية المطلوبة"},
+  {id:"sponsoring",cat:"other",icon:"📢",name:"Facebook / Instagram Sponsoring",desc:"خدمات الإعلانات الممولة. تواصل معنا باش نفهمو طلبك ونعطيوك السعر.",custom:true,label:"تفاصيل الإعلان",placeholder:"اكتب نوع الإعلان والميزانية والهدف"},
+  {id:"other-app",cat:"other",icon:"💎",name:"شحن تطبيق آخر",desc:"تحب تشحن تطبيق موش موجود؟ ابعث اسم التطبيق وصورة العرض على WhatsApp باش نعطيوك السعر.",custom:true,label:"اسم التطبيق والعرض",placeholder:"اكتب اسم التطبيق والعرض المطلوب"}
+];
+
+const grid=document.getElementById("grid");
+const search=document.getElementById("search");
+const empty=document.getElementById("empty");
+let activeCategory="all";
+let currentService=null;
+
+function money(v){return Number(v).toLocaleString("en-US")+" DT"}
+
+function render(){
+  const term=search.value.trim().toLowerCase();
+  const filtered=services.filter(s=>{
+    const categoryMatch=activeCategory==="all"||s.cat===activeCategory;
+    const text=[s.name,s.desc,s.id,...(s.offers||[]).map(o=>o.name)].join(" ").toLowerCase();
+    return categoryMatch&&text.includes(term);
+  });
+  grid.innerHTML="";
+  empty.style.display=filtered.length?"none":"block";
+
+  filtered.forEach(s=>{
+    const card=document.createElement("article");
+    card.className="card";
+    let prices="";
+    if(s.offers){
+      prices=s.offers.map(o=>{
+        let right="";
+        if(o.d17!==undefined){
+          right=`<span>D17: <b>${money(o.d17)}</b></span>`;
+          if(o.sold!==undefined){
+            right+=o.sold===null
+              ? `<span>Sold: <b class="unavailable">غير متاح</b></span>`
+              : `<span>Sold: <b>${money(o.sold)}</b></span>`;
+          }
+        }else{
+          right=`<span><b>${money(o.price)}</b></span>`;
+        }
+        return `<div class="price-row"><span>${o.name}</span>${right}</div>`;
+      }).join("");
+    }else if(s.rate){
+      prices=`<div class="price-row"><span>السعر لكل 1K</span><b>${money(s.rate)}</b></div>`;
+    }else{
+      prices=`<div class="price-row"><span>السعر</span><b>حسب الطلب</b></div>`;
+    }
+    card.innerHTML=`
+      <div class="card-top">
+        <div class="card-icon">${s.icon}</div>
+        <div><h3>${s.name}</h3><small>${categoryName(s.cat)}</small></div>
+      </div>
+      <div class="card-desc">${s.desc}</div>
+      <div class="price-list">${prices}</div>
+      <button class="btn btn-primary" data-order="${s.id}">اطلب الخدمة ←</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+function categoryName(c){
+  return {games:"الألعاب",subscriptions:"الاشتراكات",internet:"الإنترنت",social:"التواصل الاجتماعي",other:"خدمات أخرى"}[c]||"";
+}
+
+document.getElementById("filters").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-cat]");
+  if(!b)return;
+  activeCategory=b.dataset.cat;
+  document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));
+  render();
+});
+search.addEventListener("input",render);
+
+const modal=document.getElementById("orderModal");
+const offerSelect=document.getElementById("offer");
+const quantityInput=document.getElementById("quantity");
+const paymentSelect=document.getElementById("payment");
+
+function openOrder(id){
+  currentService=services.find(s=>s.id===id);
+  if(!currentService)return;
+  document.getElementById("serviceName").value=currentService.name;
+  document.getElementById("modalTitle").textContent="طلب "+currentService.name;
+
+  const hasOffers=!!currentService.offers;
+  document.getElementById("offerField").style.display=hasOffers?"block":"none";
+  document.getElementById("quantityField").style.display=(currentService.rate||currentService.quantity)?"block":"none";
+  document.getElementById("linkField").style.display=currentService.label?"block":"none";
+  document.getElementById("linkLabel").textContent=currentService.label||"الرابط أو المعلومات";
+  document.getElementById("customerLink").placeholder=currentService.placeholder||"أدخل المعلومات المطلوبة";
+  document.getElementById("customerLink").value="";
+  document.getElementById("quantity").value=1;
+  document.getElementById("phone").value="";
+  document.getElementById("notes").value="";
+  paymentSelect.value="D17";
+
+  offerSelect.innerHTML="";
+  if(hasOffers){
+    currentService.offers.forEach((o,i)=>{
+      const op=document.createElement("option");
+      op.value=i;
+      op.textContent=o.name+
+        (o.d17!==undefined?` — D17 ${money(o.d17)}${o.sold!==undefined?(o.sold===null?" — Sold غير متاح":` — Sold ${money(o.sold)}`):""}`:
+        ` — ${money(o.price)}`);
+      offerSelect.appendChild(op);
+    });
+  }
+  updateTotal();
+  modal.classList.add("show");
+}
+function getPrice(){
+  if(!currentService)return null;
+  if(currentService.custom)return null;
+  if(currentService.rate){
+    const qty=Math.max(1,Number(quantityInput.value)||1);
+    return currentService.rate*qty;
+  }
+  if(currentService.offers){
+    const o=currentService.offers[Number(offerSelect.value)||0];
+    if(!o)return null;
+    if(o.d17!==undefined){
+      if(paymentSelect.value==="D17")return o.d17;
+      if(o.sold!==undefined&&o.sold!==null)return o.sold;
+      return null;
+    }
+    return o.price;
+  }
+  return null;
+}
+function updateTotal(){
+  const price=getPrice();
+  document.getElementById("totalPrice").textContent=
+    price===null?"حسب الطلب":money(price);
+}
+offerSelect.addEventListener("change",updateTotal);
+quantityInput.addEventListener("input",updateTotal);
+paymentSelect.addEventListener("change",updateTotal);
+
+grid.addEventListener("click",e=>{
+  const b=e.target.closest("[data-order]");
+  if(b)openOrder(b.dataset.order);
+});
+document.getElementById("closeModal").onclick=()=>modal.classList.remove("show");
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
+
+document.getElementById("sendOrder").addEventListener("click",()=>{
+  if(!currentService)return;
+  const customerLink=document.getElementById("customerLink").value.trim();
+  if(currentService.label&&!customerLink){
+    alert("من فضلك أدخل المعلومات المطلوبة لإتمام الطلب.");
+    document.getElementById("customerLink").focus();
+    return;
+  }
+  const payment=paymentSelect.value;
+  let offerText="حسب الطلب";
+  if(currentService.offers){
+    const o=currentService.offers[Number(offerSelect.value)||0];
+    offerText=o.name;
+    if(o.d17!==undefined&&payment==="Sold"&&o.sold===null){
+      alert("العرض هذا غير متاح بطريقة الدفع المختارة. اختار D17 أو تواصل معنا.");
+      return;
+    }
+  }
+  const price=getPrice();
+  const quantity=currentService.rate||currentService.quantity
+    ? Math.max(1,Number(quantityInput.value)||1)
+    : null;
+  const phone=document.getElementById("phone").value.trim();
+  const notes=document.getElementById("notes").value.trim();
+
+  let message=
+`🛍️ *طلب جديد من BOUZAYAN MARKET*
+━━━━━━━━━━━━━━
+📦 الخدمة: ${currentService.name}
+🎯 العرض: ${offerText}`;
+  if(quantity!==null)message+=`\n🔢 الكمية: ${quantity}${currentService.rate?"K":""}`;
+  if(customerLink)message+=`\n🔗 الرابط / التفاصيل: ${customerLink}`;
+  message+=`\n💳 طريقة الدفع: ${payment}`;
+  message+=`\n💰 السعر: ${price===null?"حسب الطلب":money(price)}`;
+  if(phone)message+=`\n📱 رقم الهاتف: ${phone}`;
+  if(notes)message+=`\n📝 ملاحظات: ${notes}`;
+  message+=`\n━━━━━━━━━━━━━━\nشكراً لكم ❤️`;
+
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,"_blank");
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
